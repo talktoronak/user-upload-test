@@ -1,7 +1,7 @@
 <?php
 //Accepted Command-line Parameters --file --create_table --dry_run -u -p  -h -d -P --help
 try{
-  $short_ops= 'u:p:h:d::P::';
+  $short_ops= 'u:p:h:d:P:';
   $long_ops= array('file:','create_table','dry_run','help');
   $options = getopt($short_ops,$long_ops);
   if(isset($options['help']))
@@ -19,7 +19,6 @@ try{
     echo $help_block;
   }
   else {
-    var_dump($options);
     if(empty($options)) throw new \Exception("Please provide required Parameters Try --help for more information.", 1);
     if(empty($options['u'])) throw new \Exception("Please provide username with -u option", 1);
     if(empty($options['p'])) throw new \Exception("Please provide password with -p option", 1);
