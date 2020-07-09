@@ -1,6 +1,7 @@
 <?php
 //Accepted Command-line Parameters --file --create_table --dry_run -u -p  -h -d -P --help
 try{
+  if(php_sapi_name()!='cli') throw new \Exception("This program will only work as command line.", 1);
   $short_ops= 'u:p:h:d:P:';
   $long_ops= array('file:','create_table','dry_run','help');
   $options = getopt($short_ops,$long_ops);
